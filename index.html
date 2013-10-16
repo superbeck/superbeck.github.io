@@ -1,0 +1,51 @@
+---
+layout: page
+title: superbeck
+keywords: superbeck, web开发, java
+description: superbeck的个人博客
+tagline: java, web, 移动
+---
+{% include JB/setup %}
+
+<div class="row">
+  <div class="span8">   
+    {% assign posts_collate = site.posts %}
+    {% include JB/posts_collate %}
+  </div>
+  
+  <aside class="span4">
+
+    <section>
+    {% unless site.categories == empty %}
+    <h3>分类</h3>
+    <ul class="tag_box">
+      {% assign categories_list = site.categories %}
+      {% include JB/categories_list %}
+    </ul>
+    {% endunless %}  
+    </section>
+
+    <section>
+    {% unless site.tags == empty %}
+    <h3>TAG</h3>
+    <ul class="tag_box">
+      {% assign tags_list = site.tags %}
+      {% include JB/tags_list %}
+    </ul>
+    {% endunless %}
+
+    </section>
+
+    <section>
+    <h3>友情链接</h3>
+    <ul class="friendlink">
+        <li><p><a href="http://justjavac.iteye.com" target="_blank" rel="me">justjavac(iteye)</a></p></li>
+    </ul>
+    </section>
+    
+    
+  </aside>
+</div>
+
+
+
