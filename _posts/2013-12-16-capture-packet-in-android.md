@@ -39,7 +39,9 @@ tags: [android, wireshark]
 运行命令：
 
     $/data/local/tcpdump -p -vv -s 0 -w /sdcard/capture.pcap
+
 3.2. 手机上运行要抓包的程序，执行完成后在命令提示符窗口执行Ctrl+C中断抓包进程
+
 3.3. 把抓好的包拷贝到电脑上，用wireshark等抓包分析工具分析
 
     $adb pull /sdcard/capture.pcap
