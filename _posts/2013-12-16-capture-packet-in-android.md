@@ -11,7 +11,7 @@ tags: [android, wireshark]
 本文主要是参照[参考资料1]中的内容，做个记录。
 
 ## 1. Required
-1.1. Android SDK是必须的，作为必备开发工具，默认应该都装了。\[下载链接\](http://developer.android.com/sdk/index.html)
+1.1. Android SDK是必须的，作为必备开发工具，默认应该都装了。[下载链接](http://developer.android.com/sdk/index.html)
 
 1.2. 手机需要root。简单的方法是尝试各种一键root工具，我手头的一个SONY LT26w，用百度一键root没有成功，用360一键root成功。
 
