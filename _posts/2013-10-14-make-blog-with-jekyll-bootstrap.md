@@ -71,3 +71,4 @@ ubuntu上的安装步骤如下。
 4. [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
 5. [Git与Github配置笔记](http://blog.csdn.net/poisonchry/article/details/7706507)
 6. [Git历险记（二）——Git的安装和配置](http://www.infoq.com/cn/news/2011/01/git-adventures-install-config)
+7. [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown)
