@@ -16,8 +16,10 @@ tags: [github, git, jekyll, jekyll-bootstrap]
 但是如果想要在本地调试的话，这个就有必要了。
 ubuntu上的安装步骤如下。
 
+```bash
 	$ sudo apt-get install rubygems rake
 	$ sudo gem install jekyll
+```
 
 ## 2. 博客搭建步骤
 在github上搭建博客有两种。一种是直接创建名为USERNAME.github.io的工程，这样搭建出来的博客是你个人的专属博客，可以直接访问网址http://USERNAME.github.io。另外一种是搭建任意工程如名为myblog，那么访问的网址是http://USERNAME.github.io/myblog。

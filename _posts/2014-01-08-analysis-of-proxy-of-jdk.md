@@ -23,7 +23,8 @@ tags: [java 动态代理 proxy InvocationHandler]
 
 下面的代码是一个简单的示例。
 
-*将要被代理的接口*
+**将要被代理的接口**
+
 ```java
 package wsf.test.dao;
 
@@ -40,7 +41,9 @@ public interface AbcDAO {
 }
 ```
 
-*实现被代理接口的子类，用于测试，非必要*
+**实现被代理接口的子类，用于测试，非必要**
+
+```java
 package wsf.test;
 
 import wsf.test.dao.AbcDAO;
@@ -65,7 +68,8 @@ public class AbcDAOImpl implements AbcDAO {
 }
 ```
 
-*代理逻辑核心实现类，在方法调用前后记录调用时间*
+**代理逻辑核心实现类，在方法调用前后记录调用时间**
+
 ```java
 package wsf.test;
 
@@ -102,7 +106,8 @@ public class MyLogInvocationHandler implements InvocationHandler {
 }
 ```
 
-*测试代理功能的客户端代码*
+**测试代理功能的客户端代码**
+
 ```java
 package wsf.test;
 
@@ -134,9 +139,11 @@ public class TestProxy {
 如果对上面这段代码有疑问的话，估计最核心的问题是：对代理对象的调用最终怎么会调用到自己的InvocationHandler的子类的invoke方法？
 
 一句话回答这个问题：Proxy动态生成了一个类放在内存中，这个类继承Proxy且实现了所有指定的Interface的类，而且唯一的构造函数的参数是InvocationHandler，对这个代理类的任何方法的调用都被转到调用这个InvocationHandler对象的invoke方法，然后根据这个新的类创建一个对象返回给外部使用。
+
 如果要详细了解，可以看下面对JDK源代码的分析。
 
 其中java.lang.reflect.Proxy.newProxyInstance()的核心代码如下：
+
 ```java
 /*
  * Look up or generate the designated proxy class.
@@ -150,13 +157,16 @@ try {
     Constructor cons = cl.getConstructor(constructorParams);
     return (Object) cons.newInstance(new Object[] { h });
 ```
+
 另外
+
 ```java
 /** parameter types of a proxy class constructor */
 private final static Class[] constructorParams = { InvocationHandler.class };
 ```
 
 而Proxy.getProxyClass的核心逻辑是
+
 ```java
 String proxyName = proxyPkg + proxyClassNamePrefix + num;
 
@@ -169,7 +179,9 @@ try {
 ```
 
 其中sun.misc.ProxyGenerator#generateProxyClass()中的逻辑就是动态构造了一个类，其中有一个参数为InvocationHandler的构造函数，至于被代理接口的每个方法都对应的增加了一个实现。具体请参照[ProxyGenerator][1]。
+
 其中getNames()的实现代码如下，h是这个类的父类java.reflect.Proxy的protected属性，也就是java.lang.reflect.Proxy.newProxyInstance()中传入的InvocationHandler对象。
+
 ```java
 return (String[])this.h.invoke(this, m4, null);
 ```
@@ -177,18 +189,23 @@ return (String[])this.h.invoke(this, m4, null);
 
 #### 3. 其他
 想知道动态生成的class文件是什么内容？
+
 其实，经过一番小设置，是可以把动态生成的class文件生成出来的。
+
 在启动java程序的时候加一个参数，这样就会在程序启动的目录下生成一批以"$Proxy"+数字的方式命名的class文件，用java反编译软件就能查看大致的代码了。
+
 ```
 -Dsun.misc.ProxyGenerator.saveGeneratedFiles=true
 ```
 
 当然了，也可以在你的main函数的最前面加这样一行代码，效果是一样的。
+
 ```java
 System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
 ```
 
 以下是针对interface wsf.test.dao.AbcDAO的代理类的完整的反编译后的代码，可以参照一下。
+
 ```java
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

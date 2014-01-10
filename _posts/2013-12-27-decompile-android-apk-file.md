@@ -20,7 +20,9 @@ tags: [android]
 
 运行以下命令可以解压缩后的目录，可以查看各种资源文件。
 
-    $ ./apktool d \[apk文件\] \[解压缩文件夹\]
+```bash
+    $ ./apktool d [apk文件] [解压缩文件夹]
+```
 
 ### 2. 反编译dex文件
 把apk文件重命名为zip，解压缩得到其中的classes.dex文件。
@@ -29,7 +31,9 @@ tags: [android]
 
 执行以下命令可以反编译dex文件为class文件，然后就可以使用java反编译软件查看源代码了。
 
+```bash
     $ ./d2j-dex2jar.sh classes.dex
+```
 当然，很多android apk都被混淆了，想看懂不容易。
 
 ### 3. java反编译软件
@@ -40,7 +44,9 @@ tags: [android]
 ### 4. 其他
 apktool除了可以反编译apk文件之外，也可以打包apk文件。
 
-    $ ./apktool b \[原解压缩文件夹\]
+```bash
+    $ ./apktool b [原解压缩文件夹]
+```
 一些盗版软件估计就是用这样的工具对想要复制的app先解压缩然后修改logo、一些文案后，再重编译发布一个貌似属于自己的app。
 
 各位用来学习就行了，盗版就算了。偶尔用来去去广告还是可以接受的。

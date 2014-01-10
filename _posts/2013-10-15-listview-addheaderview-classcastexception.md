@@ -10,17 +10,23 @@ tags: [android, listview]
 在使用ListView的时候，需要添加一个header，结果报异常了。
 代码如下：
 
+```java
 	mHeaderView = inflater.inflate(R.layout.test_header, container, false);
 	mListView.addHeaderView(mHeaderView);
+```
+
 执行后报错，ClassCastException。
 
+```java
 	java.lang.ClassCastException: android.widget.LinearLayout$LayoutParams
 	at android.widget.ListView.clearRecycledState(ListView.java:582)
 	at android.widget.ListView.resetList(ListView.java:568)
 	at android.widget.ListView.setAdapter(ListView.java:500)
+```
 
 栈信息很明确是clearRecycledState抛出来的，再来看代码。
 
+```java
     void resetList() {
         // The parent's resetList() will remove all views from the layout so we need to
         // cleanup the state of our footers and headers
@@ -45,12 +51,14 @@ tags: [android, listview]
             }
         }
     }
+```
 
 clearRecycledState中要求headerview的LayoutParams要强转为android.widget.AbsListView$LayoutParams类型。
 而我们的mHeaderView是用LayoutInflater初始化的。
 
 查看方法public View inflate(int resource, ViewGroup root, boolean attachToRoot)的说明。
 
+```java
     /**
      * Inflate a new view hierarchy from the specified xml resource. Throws
      * {@link InflateException} if there is an error.
@@ -69,9 +77,13 @@ clearRecycledState中要求headerview的LayoutParams要强转为android.widget.A
      *         the inflated XML file.
      */
     public View inflate(int resource, ViewGroup root, boolean attachToRoot) {
+```
 
 由此可以看出，由于第二个参数我们给的是一个具体的layout，第三个参数给的是false，所以inflater按照第二个参数的layout给初始化了。
 修改代码为：
 
+```java
         mHeaderView = inflater.inflate(R.layout.hotshare_huati_tab, null);
+```
+
 即可。
