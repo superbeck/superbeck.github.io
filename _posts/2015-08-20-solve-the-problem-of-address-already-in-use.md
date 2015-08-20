@@ -3,7 +3,7 @@ layout: post
 title: "解决一个服务启动时报[Address already in use]的问题"
 description: ""
 category: "java"
-tags: [java server]
+tags: [java, server]
 ---
 {% include JB/setup %}
 
