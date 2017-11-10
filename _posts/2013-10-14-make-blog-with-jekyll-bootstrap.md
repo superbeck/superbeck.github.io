@@ -23,8 +23,8 @@ tags: [github, git, jekyll, jekyll-bootstrap]
 ubuntu上的安装步骤如下。
 
 ```bash
-	$ sudo apt-get install rubygems rake
-	$ sudo gem install jekyll
+$ sudo apt-get install rubygems rake
+$ sudo gem install jekyll
 ```
 
 ## 2. 博客搭建步骤
@@ -35,11 +35,12 @@ ubuntu上的安装步骤如下。
 1.1.1. 在github上创建工程: USERNAME.github.io，不创建README文件。
 
 1.1.2. 创建本地jekyll-bootstrap工程并上传到github
-
-    $ git clone git@github.com:plusjade/jekyll-bootstrap.git USERNAME.github.io
-    $ cd USERNAME.github.io
-    $ git remote set-url origin git@github.com:USERNAME/USERNAME.github.io.git
-    $ git push origin master
+```
+$ git clone git@github.com:plusjade/jekyll-bootstrap.git USERNAME.github.io
+$ cd USERNAME.github.io
+$ git remote set-url origin git@github.com:USERNAME/USERNAME.github.io.git
+$ git push origin master
+```
  (以上命令来源于[http://jekyllbootstrap.com/](http://jekyllbootstrap.com/)。)
 
 1.1.3. 过几分钟等github帮你生成静态html之后就可以访问http://USERNAME.github.io 了。
@@ -49,29 +50,34 @@ ubuntu上的安装步骤如下。
 1.2.1. 在github上创建工程: myblog，不创建README文件。
 
 1.2.2. 创建本地jekyll-bootstrap工程并上传到github
-    
-    $ git clone git@github.com:plusjade/jekyll-bootstrap.git myblog
-    $ cd myblog
-    $ rm -rf .git
-    $ git init
-    $ git checkout --orphan gh-pages
-修改本地文件_config.yml中 
-    
-    BASE_PATH: http://superbeck.github.io/myblog
+```    
+$ git clone git@github.com:plusjade/jekyll-bootstrap.git myblog
+$ cd myblog
+$ rm -rf .git
+$ git init
+$ git checkout --orphan gh-pages
+```
+修改本地文件_config.yml中
+```bash    
+BASE_PATH: http://superbeck.github.io/myblog
+```
 继续执行命令
-    
-    $ git add .
-    $ git commit -m "first post"
-    $ git remote add origin git@github.com:USERNAME/myblog.git
-    $ git push origin gh-pages
+``` 
+$ git add .
+$ git commit -m "first post"
+$ git remote add origin git@github.com:USERNAME/myblog.git
+$ git push origin gh-pages
+```
 
 1.2.3. 过几分钟访问地址http://USERNAME.github.io/myblog 即可。
 
 ## 3. 本地调试
 在你的工程目录下执行以下命令即可启动服务:
-
-	$ jekyll serve
+```
+$ jekyll serve
+```
 然后访问http://localhost:4000就可以看到页面了。
+
 ## 4. 参考资料
 1. [http://jekyllbootstrap.com/](http://jekyllbootstrap.com/)
 2. [http://jekyllrb.com/](http://jekyllrb.com/)
