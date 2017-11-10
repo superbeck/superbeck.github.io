@@ -7,8 +7,12 @@ tags: [android, wireshark]
 ---
 {% include JB/setup %}
 
+* content
+{:toc}
+
 不管是研究别的app，还是怀疑手机中毒要查问题，抓包都是个好办法。
 本文主要是参照[参考资料1]中的内容，做个记录。
+<!--excerpt-->
 
 ## 1. Required
 1.1. Android SDK是必须的，作为必备开发工具，默认应该都装了。[下载链接](http://developer.android.com/sdk/index.html)

@@ -3,14 +3,17 @@ layout: post
 title: "如何在Eclipse中关联Android源代码"
 description: ""
 category: "android"
-tags: [android eclipse]
+tags: [android, eclipse]
 ---
 {% include JB/setup %}
+
+* content
+{:toc}
 
 在eclipse中新建一个android工程时，会自动依赖android的jar文件，但是没有关联source code。
 
 怎么来实现这个关联呢？按照以下步骤是可以的。
-
+<!--excerpt-->
 ### 1. 下载对应版本的源代码
 启动Android SDK Manager，选择具体版本的\[Sources for Android SDK\]，下载到本地。
 

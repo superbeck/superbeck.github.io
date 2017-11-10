@@ -3,9 +3,12 @@ layout: post
 title: "分析JDK中的动态代理"
 description: ""
 category: "design"
-tags: [java 动态代理 proxy InvocationHandler]
+tags: [java, 动态代理, proxy, InvocationHandler]
 ---
 {% include JB/setup %}
+
+* content
+{:toc}
 
 代理模式是一种比较常用的设计模式，AOP编程的核心。代理对象本身不做业务逻辑相关的事情，一般是环绕原业务逻辑做一些周边的事情，比如说打log，计算时间消耗，进行权限判断，各种事前事后的处理。这样的方式可以实现对一批不同的类的对象做相同的事情。
 
@@ -14,9 +17,9 @@ tags: [java 动态代理 proxy InvocationHandler]
 静态代理一般是java代码早已存在(程序员创建或者自动生成)，运行前已经存在class文件。
 
 动态代理一般是在程序运行期间，由其他代码运用反射机制生成。
+<!--excerpt-->
 
-
-#### 1. 代码示例
+## 1. 代码示例
 其中JDK给我们提供了一套动态代理的机制，有一个类java.reflect.Proxy和一个接口java.reflect.InvocationHandler。
 
 其中Proxy提供了生成代理对象的接口，并且它是所有生成的代理对象的父类; InvocationHandler是代理逻辑的核心实现类的父接口。
@@ -135,7 +138,7 @@ public class TestProxy {
 }
 ```
 
-#### 2. 机制分析
+## 2. 机制分析
 如果对上面这段代码有疑问的话，估计最核心的问题是：对代理对象的调用最终怎么会调用到自己的InvocationHandler的子类的invoke方法？
 
 一句话回答这个问题：Proxy动态生成了一个类放在内存中，这个类继承Proxy且实现了所有指定的Interface的类，而且唯一的构造函数的参数是InvocationHandler，对这个代理类的任何方法的调用都被转到调用这个InvocationHandler对象的invoke方法，然后根据这个新的类创建一个对象返回给外部使用。
@@ -187,7 +190,7 @@ return (String[])this.h.invoke(this, m4, null);
 ```
 从以上分析，就可以知道对一个代理对象的调用怎么会转到对InvocationHandler对象的调用了。
 
-#### 3. 其他
+## 3. 其他
 想知道动态生成的class文件是什么内容？
 
 其实，经过一番小设置，是可以把动态生成的class文件生成出来的。
@@ -336,7 +339,7 @@ public final class $Proxy1 extends Proxy
 }
 ```
 
-### 参考资料
+## 4. 参考资料
 1. [sun.misc.ProxyGenerator][1]
 
 

@@ -7,6 +7,12 @@ tags: [github, git, jekyll, jekyll-bootstrap]
 ---
 {% include JB/setup %}
 
+* content
+{:toc}
+
+本文介绍了使用jekyll-bootstrap搭建博客的简单过程.
+<!--excerpt-->
+
 ## 1. 环境准备
 ### 1.1. 安装git及配置
 这是必须的，否则也没办法使用github

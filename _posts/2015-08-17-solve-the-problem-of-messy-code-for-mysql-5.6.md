@@ -7,6 +7,12 @@ tags: [mysql]
 ---
 {% include JB/setup %}
 
+* content
+{:toc}
+
+本文记录了在使用mysql 5.6的过程中遇到的一次乱码问题以及相应的分析和解决经验。
+<!--excerpt-->
+
 ## 1. 问题描述
 同事搭了一个Mysql服务，使用的时候发现直接使用mysql命令从命令行操作，插入中文之后再select出来都是正常的，但是通过web服务获取出来就是乱码。  
 

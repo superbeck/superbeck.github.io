@@ -7,7 +7,12 @@ tags: [android, listview]
 ---
 {% include JB/setup %}
 
-在使用ListView的时候，需要添加一个header，结果报异常了。
+* content
+{:toc}
+
+在使用ListView的时候，需要添加一个header，结果报异常了, ClassCastException。
+<!--excerpt-->
+
 代码如下：
 
 ```java

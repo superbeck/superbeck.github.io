@@ -7,6 +7,12 @@ tags: [software, tool, ubuntu, linux]
 ---
 {% include JB/setup %}
 
+* content
+{:toc}
+
+本文纯粹是记录自己的ubuntu系统所常用的一些软件.
+<!--excerpt-->
+
 ### 1. Category
 #### 1.1. 日常使用
 [MuPDF](#mupdf)

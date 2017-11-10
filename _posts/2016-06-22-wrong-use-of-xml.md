@@ -7,8 +7,15 @@ tags: [xml, dom4j, CDATA]
 ---
 {% include JB/setup %}
 
+* content
+{:toc}
+
+最近公司的业务使用了xx云的服务，其中一部分功能是通过http协议的api接口提供的。api接口的返回值为xml格式，但是在使用过程中却遇到解析的问题。
+解析CDATA节点时，没能正常的获取到文本内容, 而是拿到了整个节点。
+<!--excerpt-->
+
 ## 1. 问题
-最近公司的业务使用了xx云的服务，那就需要研究一下对方的api接口了。api接口采用了http协议，返回值为xml格式。解析这事按理来说很简单，直接用dom4j来获取相应的值，但是在获取子节点的值时得到了下面这样的内容。
+按理来说，解析这事很简单，直接用dom4j来获取相应的值，但是在获取子节点的值时得到了下面这样的内容。
 
 调用的接口是
 
@@ -45,7 +52,7 @@ tags: [xml, dom4j, CDATA]
 ## 4. 问题还原
 因为在网上搜索的时候，看到某些用法，所以就尝试还原了一下问题产生的可能原因。
 
-```java
+{% highlight java linenos %}
 Document doc = DocumentHelper.createDocument();
 Element root = doc.addElement("root");
 Element myCdataNode = root.addElement("myCDATANode");
@@ -55,7 +62,7 @@ Element myTextNode = root.addElement("myTextNode");
 myTextNode.addText("<![CDATA[这是文本节点]]>");
 
 System.out.println(doc.asXML());
-```
+{% endhighlight %}
 
 输出结果
 

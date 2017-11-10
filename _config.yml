@@ -1,15 +1,19 @@
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
-permalink: /:categories/:year/:month/:day/:title 
+permalink: articles/:year/:month/:day/:title 
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-highlighter: pygments
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock"]
+#highlighter: pygments
+#highlighter: rouge
+
+theme: jekyll-theme-primer
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
 title : superbeck的博客 
 tagline: a programmers records
+brief-intro: a programmer's records
 author :
   name : superbeck
   email : blah@email.test
@@ -28,6 +32,8 @@ safe: true
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 production_url : http://superbeck.github.io
+
+baseurl: ""
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -132,8 +138,40 @@ JB :
   # where [HELPER] is the name of the helper you are overriding.
   
 #@markdown: rdiscount
-#markdown: kramdown
-markdown: redcarpet
+markdown: kramdown
+#markdown: redcarpet
 
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
+
+# excerpt
+#excerpt_separator: "\n\n\n\n"
+excerpt_separator: "<!--excerpt-->"
+
+# paginate
+plugins: [jekyll-paginate]
+paginate: 6
+paginate_path: "articles/page/:num"
+
+
+uyan_uid: 2055169
+
+# statistic analysis 统计代码
+# 百度统计 id，将统计代码替换为自己的百度统计id，即
+# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
+# xxxxx字符串
+baidu_tongji_id: 4bff3893c093569191bb87a596a432a3
+#google_analytics_id: UA-72449510-4 # google 分析追踪id
+
+# other links
+twitter_username: 
+facebook_username: 
+github_username:  superbeck
+email: 
+weibo_username: superbeck
+zhihu_username: superbeck
+linkedIn_username: 
+dribbble_username:
+
+description_footer: 本站记录我技术之旅的点滴知识！

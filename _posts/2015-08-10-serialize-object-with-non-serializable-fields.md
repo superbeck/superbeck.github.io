@@ -7,7 +7,11 @@ tags: [java, seralization]
 ---
 {% include JB/setup %}
 
+*content
+{:toc}
+
 JDK的序列化机制要求被序列化的对象的类以及各字段的类都实现了Serializable接口。如果各个字段的类是自己定义的话，那么可以自己修改这些类型。如果不是呢？
+<!--excerpt-->
 
 ## 1. 解决方案
 

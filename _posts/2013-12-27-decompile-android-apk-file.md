@@ -7,9 +7,13 @@ tags: [android]
 ---
 {% include JB/setup %}
 
+* content
+{:toc}
+
 学习他人的android app，反编译是必不可少的步骤。根据目前可以找到的工具所限，反编译apk文件一共分两步。
 
 提取资源文件和从dex文件提取出class文件，用java反编译软件查看class文件或者反编译为java文件。
+<!--excerpt-->
 
 ### 1. 提取资源文件
 到apktool的网站上下载\[apktool1.5.2.tar.bz2\]和\[apktool-install-linux-r05-ibot.tar.bz2\]。其中版本和操作系统请注意根据自己情况选择。(见参考资料)
