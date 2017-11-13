@@ -115,8 +115,8 @@ header {
                 right: 0;
                 top:10px;
                 padding: 5px 10px;
-                background: #039;
-                border: 1px solid #039;
+                background: #1874cd;
+                border: 1px solid #1874cd;
                 border-radius: 4px;
                 color: #c9c9c9;
                 font-size: 17px;
@@ -124,7 +124,7 @@ header {
                 transition: 0.4s ease;
             }
             >.active{
-                background: #000;
+                background: #039;
                 color: #fff;
             }
             .nav-show{
