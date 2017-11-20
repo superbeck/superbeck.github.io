@@ -3,8 +3,8 @@ layout: post
 title: "Spring3.1之前版本分离测试和生产环境的方法"
 en-title: "Ways to Separate Test And Production Environment With Pre 3.1 Version Of Spring"
 description: ""
-category: ""
-tags: []
+category: "Spring"
+tags: [Spring, java]
 ---
 
 * content

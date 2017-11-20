@@ -145,6 +145,10 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+# url
+category_dir: categories/
+tag_dir: tags/
+
 # excerpt
 #excerpt_separator: "\n\n\n\n"
 excerpt_separator: "<!--excerpt-->"
