@@ -1,7 +1,7 @@
 // 从jekyll-theme-architect中拷贝过来的片段,code和pre
-// pre.border颜色进行了修改
+// pre.border颜色进行了修改,一些padding和margin也有修改
 code, pre {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   font-size: 13px;
   color: #222;
@@ -14,7 +14,7 @@ code {
 }
 
 pre {
-  padding: 20px;
+  padding: 5px;
   overflow: auto;
   text-shadow: none;
   background: #fff;
